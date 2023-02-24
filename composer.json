@@ -17,7 +17,8 @@
     }
   ],
   "require": {
-    "php": "^8.0"
+    "php": "^8.0",
+    "omegaalfa/array-collection": "^1.0@dev"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
