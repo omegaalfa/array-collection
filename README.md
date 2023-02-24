@@ -41,3 +41,80 @@ print_r($doubledNumbers);
 // Obtendo a representação em array da coleção
 $array = $collection->toArray();
 print_r($array);
+```
+
+
+
+
+
+### Arr Class
+
+A classe Arr tem os seguintes métodos adicionais:
+
+- `searchInArray`: pesquisa em um array multidimensional usando notação de ponto e retorna o valor da chave.
+- `isEmptyAssoc`: verifica se um array associativo está vazio.
+- `valueInArray`: verifica se um valor existe em um array.
+- `arrayKeysValues`: remove todos os valores falsey de um array e retorna um array apenas com os valores truthy e suas chaves.
+- `combine`: cria um array associativo a partir de dois arrays, em que o primeiro array é as chaves e o segundo array é os valores.
+- `set`: define um par de chave-valor em um array.
+- `get`: obtém o valor de uma chave em um array.
+- `keyInArray`: verifica se uma chave existe em um array.
+
+Você pode utilizar esses métodos da seguinte forma:
+
+```php
+use omegaalfa\Arr;
+
+// Criando um array multidimensional
+$data = [
+    'pessoas' => [
+        'pessoa1' => [
+            'nome' => 'João',
+            'idade' => 30,
+        ],
+        'pessoa2' => [
+            'nome' => 'Maria',
+            'idade' => 25,
+        ],
+        'pessoa3' => [
+            'nome' => 'Pedro',
+            'idade' => 40,
+        ],
+    ],
+];
+
+// Pesquisando um valor em um array multidimensional
+$searchResult = Arr::searchInArray($data, 'pessoas.pessoa1.nome');
+echo $searchResult . PHP_EOL;
+
+// Verificando se um array associativo está vazio
+$isAssocArrayEmpty = Arr::isEmptyAssoc($data);
+var_dump($isAssocArrayEmpty);
+
+// Verificando se um valor existe em um array
+$valueExists = Arr::valueInArray($data, 'Maria');
+var_dump($valueExists);
+
+// Removendo valores falsey de um array e retornando um array apenas com os valores truthy e suas chaves
+$cleanArray = Arr::arrayKeysValues([false, 0, '', null, 'foo' => 'bar']);
+print_r($cleanArray);
+
+// Criando um array associativo a partir de dois arrays, em que o primeiro array é as chaves e o segundo array é os valores
+$keys = ['foo', 'bar', 'baz'];
+$values = [1, 2, 3];
+$assocArray = Arr::combine($keys, $values);
+print_r($assocArray);
+
+// Definindo um par de chave-valor em um array
+$array = ['foo' => 'bar'];
+Arr::set($array, 'baz', 'qux');
+print_r($array);
+
+// Obtendo o valor de uma chave em um array
+$value = Arr::get($array, 'foo');
+echo $value . PHP_EOL;
+
+// Verificando se uma chave existe em um array
+$keyExists = Arr::keyInArray($array, 'baz');
+var_dump($keyExists);
+```
