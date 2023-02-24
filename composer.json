@@ -2,7 +2,12 @@
   "name": "omegaalfa/array-collection",
   "description": "Simplicando o uso de array com baixo consumo de memória",
   "version": "1.0.0",
-  "keywords": ["array", "collection", "perfomance", "memory"],
+  "keywords": [
+    "array",
+    "collection",
+    "perfomance",
+    "memory"
+  ],
   "homepage": "https://github.com/omegaalfa/array-collection",
   "license": "MIT",
   "authors": [
@@ -14,6 +19,8 @@
   "require": {
     "php": "^8.0"
   },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "autoload": {
     "psr-4": {
       "omegaalfa\\": "src/"
