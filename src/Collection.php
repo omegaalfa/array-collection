@@ -2,7 +2,6 @@
 
 namespace omegaalfa;
 
-use iterable;
 use IteratorAggregate;
 
 class Collection implements IteratorAggregate
