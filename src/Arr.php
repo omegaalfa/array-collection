@@ -14,20 +14,23 @@ class Arr extends Collection
 
 
 	/**
-	 * @param  array  $array
-	 * @param         $key
-	 * @param  null   $default
+	 * @param  array       $array
+	 * @param  mixed       $value
+	 * @param  mixed|null  $default
 	 *
-	 * @return array|null
+	 * @return mixed
 	 */
-	public static function searchInArray(array $array, $key, $default = null): array|null
+	public static function searchInArray(array $array, mixed $value, mixed $default = null): mixed
 	{
-		if(!is_array($key)) {
-			$key = explode('.', $key);
+
+		if(!is_array($value)) {
+			$value = explode('.', $value);
 		}
 
-		foreach($key as $piece) {
-			if(!is_array($array) || !array_key_exists($piece, $array)) {
+		$data = self::fromIterable($value);
+
+		foreach($data as $piece) {
+			if(!array_key_exists($piece, $array)) {
 				return $default;
 			}
 
@@ -36,7 +39,6 @@ class Arr extends Collection
 
 		return $array;
 	}
-
 
 	/**
 	 * @param  array  $array
