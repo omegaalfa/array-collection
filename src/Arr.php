@@ -1,6 +1,6 @@
 <?php
 
-namespace omegaalfa\Arr;
+namespace omegaalfa\Collection;
 
 use Exception;
 
