@@ -27,9 +27,7 @@ class Arr extends Collection
 			$value = explode('.', $value);
 		}
 
-		$data = self::fromIterable($value);
-
-		foreach($data as $piece) {
+		foreach(self::fromIterable($value) as $piece) {
 			if(!array_key_exists($piece, $array)) {
 				return $default;
 			}
@@ -89,9 +87,7 @@ class Arr extends Collection
 	 */
 	public static function combine(array $keys, array $values): array
 	{
-		array_walk($keys, static fn($index) => self::$array[$index] = $values);
-
-		return self::$array;
+		return array_combine($keys, $values);
 	}
 
 	/**
@@ -99,24 +95,25 @@ class Arr extends Collection
 	 * @param         $key
 	 * @param         $value
 	 */
-	public static function set(array &$array, $key, $value): void
+	public static function set(array &$array, mixed $key, mixed $value): void
 	{
-		array_push($array, $key, $value);
+		$array[$key] = $value;
 	}
 
 	/**
-	 * @param  array   $array
-	 * @param  string  $key
+	 * @param  array       $array
+	 * @param  string      $key
+	 * @param  mixed|null  $default
 	 *
 	 * @return mixed
 	 */
-	public static function get(array $array, string $key): mixed
+	public static function get(array $array, string $key, mixed $default = null): mixed
 	{
 		if(self::keyInArray($array, $key)) {
 			return $array[$key];
 		}
 
-		return null;
+		return $default;
 	}
 
 	/**
