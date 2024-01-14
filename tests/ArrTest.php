@@ -97,12 +97,12 @@ class ArrTest extends TestCase
     public function testEach(): void
     {
         $array = ['a' => 1, 'b' => 2, 'c' => 3];
-        $result = Arr::each($array, static function ($item, $key) {
-            // Do something with each item and key
-            // For this example, let's double each value
-            return $item * 2;
+		$newArray = [];
+
+	    Arr::each($array, static function ($item, $key) use (&$newArray) {
+		    $newArray[$key] = $item * 2;
         });
 
-        $this->assertEquals(['a' => 2, 'b' => 4, 'c' => 6], $result->toArray());
+	    $this->assertEquals(['a' => 2, 'b' => 4, 'c' => 6], $newArray);
     }
 }
