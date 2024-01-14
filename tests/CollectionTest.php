@@ -1,9 +1,9 @@
 <?php
 
-namespace OmegaAlfa\Tests;
+namespace omegaalfa\Tests;
 
-use OmegaAlfa\Arr\Arr;
-use OmegaAlfa\Collection\Collection;
+use omegaalfa\Collection\Arr;
+use omegaalfa\Collection\Collection;
 use PHPUnit\Framework\TestCase;
 
 class CollectionTest extends TestCase
